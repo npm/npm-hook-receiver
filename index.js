@@ -33,7 +33,7 @@ module.exports = function makeReceiver(opts)
 			payload: request.body.payload,
 		};
 		handler.emit(request.body.event, message);
-		handler.emit('okay', message);
+		handler.emit('*', message);
 	};
 
 	handler.__proto__ = EventEmitter.prototype;
