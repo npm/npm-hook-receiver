@@ -1,7 +1,7 @@
 {
   "name": "@npmcorp/npm-hook-receiver",
   "description": "sample code for receiving package hooks from the npm registry",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "C J Silverio <ceej@npmjs.com>",
   "keywords": [
     "hooks",
