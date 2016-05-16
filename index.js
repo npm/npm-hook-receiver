@@ -37,7 +37,7 @@ module.exports = function makeServer(opts)
 			payload: request.body.payload,
 		};
 		server.emit(request.body.event, message);
-		server.emit('*', message);
+		server.emit('hook', message);
 
 		response.send(200, 'OK');
 		next();
