@@ -28,11 +28,20 @@ server.listen(8080, function()
 });
 ```
 
+## Configuration
+
+This example hook receiver exports a single function that takes a config object and returns a restify server. The config object must have two required fields plus any configuration you'd like to pass along to restify's `createServer()` function. The two required fields are:
+
+* `secret`: the secret you've shared with the registry for the hook
+* `mount`: the url path you expect the hooks to be posted to
+
+You must call `listen()` on the restify server yourself. The server object is an event emitter. Attach event listeners to it to act when hooks are fired.
+
 ## Events
 
 * `hook`: emitted for all successfully-received notifications. Listen for this event to handle all hooks.
 * `hook:error`: emitted on payload errors like missing or invalid signatures.
-* An event is also emitted for each hook event string. E.g, listen for `package:star-removed` to handle only unstarring notifications.
+* An event is also emitted for each hook event string. E.g, listen for `package:star` to handle only starring notifications.
 
 See the npm hooks API documentation for the full list of events.
 
