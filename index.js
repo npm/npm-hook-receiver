@@ -24,7 +24,7 @@ module.exports = function makeServer(opts)
 		var expected = crypto.createHmac('sha256', secret).update(request._body).digest('hex');
 		if (signature !== 'sha256=' + expected)
 		{
-			handler.emit('hook:error', 'invalid payload signature found in x-npm-signature header');
+			server.emit('hook:error', 'invalid payload signature found in x-npm-signature header');
 			response.send(400, 'invalid payload signature found in x-npm-signature header');
 			return next();
 		}
