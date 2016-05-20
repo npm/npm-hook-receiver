@@ -29,13 +29,9 @@ module.exports = function makeServer(opts)
 			return next();
 		}
 
-		var message = {
-			event: request.body.event,
-			type: request.body.type,
-			name: request.body.name,
-			sender: request.body.sender.username,
-			payload: request.body.payload,
-		};
+		var message = Object.assign({}, request.body);
+		message.sender = request.body.sender.username;
+
 		server.emit(request.body.event, message);
 		server.emit('hook', message);
 
