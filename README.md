@@ -5,7 +5,7 @@ Sample code showing you how to receive a package hook from the npm registry, ver
 ## Usage
 
 ```js
-var makeReceiver = require('@npmcorp/npm-hook-receiver');
+var makeReceiver = require('npm-hook-receiver');
 var server = makeReceiver({
 	secret: 'this-is-a-shared-secret',
 	mount: '/hook'
