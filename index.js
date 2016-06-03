@@ -30,7 +30,7 @@ module.exports = function makeServer(opts)
 		}
 
 		var message = Object.assign({}, request.body);
-		message.sender = request.body.sender.username;
+		message.sender = request.body.hookOwner.username;
 
 		server.emit(request.body.event, message);
 		server.emit('hook', message);
