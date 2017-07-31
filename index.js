@@ -41,10 +41,10 @@ module.exports = function makeServer(opts)
 
 	var server = restify.createServer(opts);
 
-	server.use(restify.acceptParser(server.acceptable));
-	server.use(restify.queryParser());
-	server.use(restify.gzipResponse());
-	server.use(restify.bodyParser({ mapParams: false }));
+	server.use(restify.plugins.acceptParser(server.acceptable));
+	server.use(restify.plugins.queryParser());
+	server.use(restify.plugins.gzipResponse());
+	server.use(restify.plugins.bodyParser({ mapParams: false }));
 	server.post(opts.mount, handleMessage);
 
 	return server;
