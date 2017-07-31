@@ -28,6 +28,11 @@ server.listen(8080, function()
 });
 ```
 
+how about you try and remix on glitch
+
+https://glitch.com/edit/#!/possible-pipe
+
+
 ## Configuration
 
 This example hook receiver exports a single function that takes a config object and returns a restify server. The config object must have two required fields plus any configuration you'd like to pass along to restify's `createServer()` function. The two required fields are:
